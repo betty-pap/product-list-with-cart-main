@@ -1,58 +1,23 @@
-
+import Card from "./components/Card";
+import data from "../data.json";
 
 const App = () => {
   return (
-    <div>
-      Desserts
+    <div className="container">
+      <h1>Desserts</h1>
 
-      Waffle with Berries
-      Waffle
-      6.50
-      Add to Cart
+      {data.map((item, index) => {
+        return (
+          <Card key={index} category={item.category} name={item.name} price={item.price} image={item.image}/>
+        )
+      })}
 
-      Vanilla Bean Crème Brûlée
-      Crème Brûlée
-      7.00
-      Add to Cart
-
-      Macaron Mix of Five
-      Macaron
-      8.00
-      Add to Cart
-
-      Classic Tiramisu
-      Tiramisu
-      5.50
-      Add to Cart
-
-      Pistachio Baklava
-      Baklava
-      4.00
-      Add to Cart
-
-      Lemon Meringue Pie
-      Pie
-      5.00
-      Add to Cart
-
-      Red Velvet Cake
-      Cake
-      4.50
-      Add to Cart
-
-      Salted Caramel Brownie
-      Brownie
-      4.50
-      Add to Cart
-
-      Vanilla Panna Cotta
-      Panna Cotta
-      6.50
-      Add to Cart
-
-      Your Cart  
-      {/* Quantity  */}
-      Your added items will appear here
+      <div className="cart">
+        <p className="your-cart">Your Cart  </p>
+        {/* Quantity  */}
+        <img src="../assets/images/illustration-empty-cart.svg" alt="empty-cart-img" />
+        <p>Your added items will appear here</p>
+      </div>
     </div>
   )
 }
