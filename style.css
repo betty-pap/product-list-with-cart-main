@@ -59,6 +59,7 @@ h3 {
   position: relative;
   width: 100%;
   height: 200px;
+  /* display: grid; */
 }
 
 .add-to-cart {
@@ -76,6 +77,44 @@ h3 {
   background-position: 15px center;
 }
 
+.card-counter-btn {
+  background-color: var(--clr-red);
+  color: var(--clr-white);
+  position: absolute;
+  bottom: -32px;
+  left: 30%;
+  cursor: pointer;
+  border-radius: 20px;
+  padding: 10px;
+  height: 40px;
+  width: 8.6rem;
+  font-weight: 600;
+  display: grid;
+  grid-template-columns: 20px 1fr 20px;
+  gap: 10px;
+  /* align-items: center; */
+  /* justify-self: center; */
+}
+
+.counter-btn {
+  background-color: var(--clr-red);
+  color: var(--clr-white);
+  cursor: pointer;
+  border-radius: 50%;
+  border: 1px solid var(--clr-white);
+  /* padding: 5px 10px; */
+  width: 20px;
+  height: 20px;
+  font-size: 18px;
+  align-content: center;
+  justify-self: center;
+}
+
+.option-quantity {
+  text-align: center;
+  font-size: 13px;
+}
+
 .text-section {
   display: grid;
   gap: 3px;
@@ -85,11 +124,23 @@ h3 {
 
 .cart {
   background-color: var(--clr-white);
+  background-image: url(assets/images/illustration-empty-cart.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 250px;
   padding: 22px;
   border-radius: 12px;
 }
-.your-cart {
+.your-cart-h {
   color: var(--clr-red);
-  font-size: 30px;
+  font-size: 26px;
   font-weight: 900;
+}
+
+.cart p {
+  color: var(--clr-rose500);
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  
 }

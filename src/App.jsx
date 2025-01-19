@@ -1,5 +1,6 @@
 import Card from "./components/Card";
 import data from "../data.json";
+import YourCart from "./components/YourCart";
 
 const App = () => {
   return (
@@ -8,15 +9,16 @@ const App = () => {
 
       {data.map((item, index) => {
         return (
-          <Card key={index} category={item.category} name={item.name} price={item.price} image={item.image}/>
+          <Card key={index} category={item.category} name={item.name} price={item.price} image={item.image} />
         )
       })}
 
       <div className="cart">
-        <p className="your-cart">Your Cart  </p>
+        <span className="your-cart-h">Your Cart (0) </span>
         {/* Quantity  */}
-        <img src="../assets/images/illustration-empty-cart.svg" alt="empty-cart-img" />
         <p>Your added items will appear here</p>
+
+        <YourCart />
       </div>
     </div>
   )
