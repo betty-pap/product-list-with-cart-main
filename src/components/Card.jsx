@@ -1,28 +1,27 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
-const Card = ({item, image, category, name, price, addToCart, updateCart}) => {
+const Card = ({id, item, image, category, name, price, cart, updateCart}) => {
   const [quantity, setQuantity] = useState(0);
-  const handleAddToCart = () => {
-    setQuantity(1);
-    addToCart(item, 1);
-  };
 
   const handleIncrement = () => {
     const newQuantity = quantity + 1;
     setQuantity(newQuantity);
-    updateCart(item, newQuantity);
+    updateCart({ name, price, category, image }, newQuantity);
   };
 
   const handleDecrement = () => {
     const newQuantity = quantity - 1;
-    if (newQuantity <= 0) {
-      setQuantity(0);
-      updateCart(item, 0);
-    } else {
-      setQuantity(newQuantity);
-      updateCart(item, newQuantity);
-    }
+    setQuantity(newQuantity >= 0 ? newQuantity : 0);
+    updateCart({ name, price, category, image }, newQuantity >= 0 ? newQuantity : 0);
   }
+
+   // Reset quantity when an item is removed from the cart
+   useEffect(() => {
+    const foundItem = cart.find((cartItem) => cartItem.name === item.name);
+    if (!foundItem) {
+      setQuantity(0); // Reset to 0 when the item is deleted
+    }
+  }, [cart, item.name]);
 
   return (
     <div className="option">
@@ -41,14 +40,18 @@ const Card = ({item, image, category, name, price, addToCart, updateCart}) => {
         </picture>
         
         {quantity === 0 ? (
-          <button className="add-to-cart" onClick={handleAddToCart}>
+          <button className="add-to-cart" onClick={handleIncrement}>
             Add to Cart
           </button>
         ) : (
           <div className="card-counter-btn">
-            <button className="counter-btn" onClick={handleDecrement}>-</button>
+            <button className="counter-btn" onClick={handleDecrement}>
+              <img src="assets/images/icon-decrement-quantity.svg" alt="icon-decrement-quantity" />
+            </button>
             <span className="option-quantity" >{quantity}</span>
-            <button className="counter-btn" onClick={handleIncrement}>+</button>
+            <button className="counter-btn" onClick={handleIncrement}>
+              <img src="assets/images/icon-increment-quantity.svg" alt="icon-increment-quantity" />
+            </button>
           </div>
         )}
       </div>
