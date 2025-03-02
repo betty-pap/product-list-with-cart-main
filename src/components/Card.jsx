@@ -16,7 +16,7 @@ const Card = ({id, item, image, category, name, price, cart, updateCart}) => {
   }
 
    // Reset quantity when an item is removed from the cart
-   useEffect(() => {
+  useEffect(() => {
     const foundItem = cart.find((cartItem) => cartItem.name === item.name);
     if (!foundItem) {
       setQuantity(0); // Reset to 0 when the item is deleted
@@ -27,16 +27,9 @@ const Card = ({id, item, image, category, name, price, cart, updateCart}) => {
     <div className="option">
       <div className="image-section">
         <picture>
-          <source srcSet={image.tablet} media="(min-width: 768px)"/>
-          <source srcSet={image.desktop} media="(min-width: 1024px)"/>
-          <img src={image.mobile} alt={image.name}
-            style={{
-              width: '100%',          // Make the image responsive
-              height: 'auto',         // Maintain aspect ratio
-              borderRadius: '8px',    // Add rounded corners
-              objectFit: 'cover'      // Ensure the image fits nicely
-            }}
-          />
+          <source srcSet={image.desktop} media="(min-width: 1024px)" />
+          <source srcSet={image.tablet} media="(min-width: 768px)" />
+          <img src={image.mobile} alt={image.name}/>
         </picture>
         
         {quantity === 0 ? (

@@ -1,7 +1,7 @@
 import Card from "./components/Card";
 import data from "../data.json";
 import YourCart from "./components/YourCart";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const App = () => {
   const [cart, setCart] = useState([]);
@@ -30,15 +30,21 @@ const App = () => {
     setCart((prevCart) => prevCart.filter((cartItem) => cartItem.name !== item.name));
   };
 
+  const clearCart = () => {
+    setCart([]); // Reset cart to an empty array
+  };
+
   return (
     <div className="container">
       <h1>Desserts</h1>
 
-      {data.map((item, index) => {
-        return (
-          <Card key={index} item={item} category={item.category} name={item.name} price={item.price} image={item.image} cart={cart} updateCart={updateCart}/>
-        )
-      })}
+      <div className="option-grid">
+        {data.map((item, index) => {
+          return (
+            <Card key={index} item={item} category={item.category} name={item.name} price={item.price} image={item.image} cart={cart} updateCart={updateCart}/>
+          )
+        })}
+      </div>
 
       <div className="cart">
         {cart.length === 0 ? (
@@ -47,7 +53,7 @@ const App = () => {
             <p>Your added items will appear here</p>
           </div>
         ) : (
-          <YourCart cart={cart} handleDelete={handleDelete}/>
+          <YourCart cart={cart} handleDelete={handleDelete} clearCart={clearCart}/>
         )}
         
         
