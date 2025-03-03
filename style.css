@@ -62,6 +62,10 @@ h3 {
   height: 200px;
 }
 
+/* .image-section-active {
+  border: 2px solid var(--clr-red);
+} */
+
 picture img {
   width: 100%;          
   height: auto;         
@@ -110,6 +114,7 @@ picture img {
   display: flex;
   justify-content: center;
   align-items: center;
+  pointer-events: bounding-box;
 }
 
 .option-quantity {
@@ -253,9 +258,7 @@ picture img {
   border: none;
   cursor: pointer;
   border-radius: 20px;
-  padding: 10px;
-  height: 40px;
-  width: 8.6rem;
+  padding: 12px;
   font-weight: 600;
   display: inline-block;
   width: 100%;
@@ -275,7 +278,9 @@ picture img {
   align-items: start;
   padding: 20px;
   border-radius: 12px 12px 0 0;
+  max-height: 90vh; /* Prevents it from getting too tall */
   overflow-y: auto;  /* Enables scrolling */
+  scrollbar-width: none;
 }
 
 .order-overlay {
@@ -339,15 +344,14 @@ picture img {
   font-weight: 900;
 }
 
-.order-confirmed button {
+.new-order-btn {
+  position: sticky;
   background-color: var(--clr-red);
   color: var(--clr-white);
   border: none;
   cursor: pointer;
   border-radius: 20px;
-  padding: 10px;
-  height: 40px;
-  width: 8.6rem;
+  padding: 12px;
   font-weight: 600;
   display: inline-block;
   width: 100%;
@@ -384,12 +388,34 @@ picture img {
     bottom: -100px;
   }
 
+  .add-to-cart:hover {
+    color: var(--clr-red);
+    border-color: var(--clr-red);
+  }
+
+  .counter-btn:hover {
+    background-color: var(--clr-white);
+    stroke: var(--clr-red);
+  }
+
+  /* :hover {
+    stroke: var(--clr-red); /*???????????????????????? */
+  
+
   .text-section {
     margin-top: 120px;
   }
 
   .cart {
     grid-area: 1 / 2 / 4 / 3;
+  }
+
+  .delete-btn:hover path{
+    stroke: var(--clr-rose900); /*??????????????????*/
+  }
+
+  .new-order-btn:hover, .confirm-order-btn:hover {
+    background-color: hsl(14, 86%, 29%);
   }
 
   .order-confirmed {
@@ -408,5 +434,10 @@ picture img {
   .order-thumbnail {
     width: 50px;
     border-radius: 5px;
+  }
+
+  .new-order-btn, .confirm-order-btn {
+    padding: 14px;
+    font-size: 16px;
   }
 }
