@@ -40,7 +40,7 @@ const Card = ({id, item, image, category, name, price, cart, updateCart}) => {
         <picture>
           <source srcSet={image.desktop} media="(min-width: 1024px)" />
           <source srcSet={image.tablet} media="(min-width: 768px)" />
-          <img src={image.mobile} alt={image.name} />
+          <img src={`../${image.mobile}`} alt={image.name} />
         </picture>
         
         {quantity === 0 ? (
