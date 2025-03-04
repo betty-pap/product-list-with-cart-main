@@ -238,7 +238,7 @@ picture img {
   padding: 12px 12px 12px 22px;
   text-align: center;
   font-size: 14px;
-  background-image: url(assets/images/icon-carbon-neutral.svg);
+  background-image: url(/images/icon-carbon-neutral.svg);
   background-repeat: no-repeat;
   background-position: 18px center;
   margin: 24px 0;
