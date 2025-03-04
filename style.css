@@ -79,7 +79,7 @@ picture img {
   padding: 10px 20px 10px 42px;
   font-weight: 600;
   color: var(--clr-rose900);
-  background-image: url(assets/images/icon-add-to-cart.svg);
+  background-image: url(/images/icon-add-to-cart.svg);
   background-repeat: no-repeat;
   background-position: 15px center;
 }
@@ -132,7 +132,7 @@ picture img {
 }
 
 .empty-cart {
-  background-image: url(assets/images/illustration-empty-cart.svg);
+  background-image: url(/images/illustration-empty-cart.svg);
   background-repeat: no-repeat;
   background-position: center;
   min-height: 250px;
