@@ -27,9 +27,9 @@ const Card = ({item, image, category, name, price, cart, updateCart}) => {
     <div className="option">
       <div className="image-section">
         <picture>
-          <source srcSet={`../${image.desktop}`} media="(min-width: 1024px)" />
-          <source srcSet={`../${image.tablet}`} media="(min-width: 768px)" />
-          <img src={`../${image.mobile}`} alt={image.name} />
+          <source srcSet={`../../${image.desktop}`} media="(min-width: 1024px)" />
+          <source srcSet={`../../${image.tablet}`} media="(min-width: 768px)" />
+          <img src={`../../${image.mobile}`} alt={image.name} />
         </picture>
         
         {quantity === 0 ? (
