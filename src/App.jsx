@@ -1,5 +1,5 @@
 import Card from "./components/Card";
-import data from "../data.json";
+import data from "../data.js";
 import YourCart from "./components/YourCart";
 import { useState } from "react";
 
