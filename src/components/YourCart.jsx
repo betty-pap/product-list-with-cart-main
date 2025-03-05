@@ -32,7 +32,7 @@ const YourCart = ({cart, handleDelete, clearCart}) => {
       ) : orderConfirmed ? (
         <div className="order-overlay">
           <div className="order-confirmed">
-            <img src="/images/icon-order-confirmed.svg" alt="icon-order-confirmed" />
+            <div className="icon-order-confirmed"> {/*place for order confirmed icon*/} </div>
             <h2>Order Confirmed</h2>
             <p>We hope you enjoy your food!</p>
             <div className="confirmed-list">
